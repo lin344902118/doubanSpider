@@ -18,8 +18,11 @@ class DoubanSpider(Spider):
     def start_requests(self):
         url_head = 'https://movie.douban.com/subject_search?search_text='
         with open('movie_name.txt', 'r') as file_object:
-            line = file_object.read().decode('gb2312')
-            self.start_urls.append(url_head+line)
+            datas = file_object.readlines()
+        for data in datas:
+            url = url_head+data
+            print url
+            self.start_urls.append(url)
         for url in self.start_urls:
             yield self.make_requests_from_url(url)
 

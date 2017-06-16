@@ -19,4 +19,11 @@ class TutorialItem(Item):
     movie_long = Field()
     movie_description = Field()
 
+class ZhihuItem(Item):
+    search_title = Field()
+    search_title_link = Field()
+    search_answer = Field()
+    search_answer_link = Field()
+    search_answer_writer = Field()
+
 
