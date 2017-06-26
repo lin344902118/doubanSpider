@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from scrapy.spiders import CrawlSpider, Rule
-from scrapy.linkextractors.sgml import SgmlLinkExtractor
+from scrapy.linkextractors import LinkExtractor
 from scrapy.selector import Selector
 from tutorial.items import blogItem
 
@@ -14,7 +14,7 @@ class CnblogsSpider(CrawlSpider):
     ]
 
     rules = [
-        Rule(SgmlLinkExtractor(allow=('page=\d+', ), ), callback='parse_item', follow=True),
+        Rule(LinkExtractor(allow=('page=\d+', ), ), callback='parse_item', follow=True),
     ]
 
     def parse_start_url(self, response):
